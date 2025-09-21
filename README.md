@@ -1,5 +1,6 @@
 # Python_Projects
 1 - Slot Machine CLI (Python)
+2 - WIP
 #
 # This is a simple command-line slot machine program.
 #
