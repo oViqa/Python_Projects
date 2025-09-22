@@ -8,7 +8,44 @@ MAX_BET = 100
 MIN_BET = 1
 
 ROWS = 3
-COLLONS = 3
+COLUMNS = 3
+# dictionnary declaration for how many times we want a certain symbol to appear
+# dict = {"name" : "Alex", "age" : 30}
+symbol_count = {
+    "A" : 2,
+    "B" : 4,
+    "C" : 6,
+    "D" : 8
+}
+# randomly select values by using a list that contains all different values
+# and then choose a value that will be removed from the list
+
+# VISUAL EXAMPLE OF THE RESULT : 
+# A  D  C  ← Row 1
+# B  A  D  ← Row 2
+# C  B  A  ← Row 3
+
+# 1 - looping through the dictionnary
+# 2 - A = symbol, symbol count = 2
+# 3 - in the second for loop, we add the symbol twice to the symbol list
+# 3.2 - We copy the symbols list 
+# 4 - defining columns_list, generate column x3 + pick a value for each column and then remove it from the list
+# outcome 1st iteration : -> ["A", "A"]
+def get_slot_machine_spins(ROWS,COLUMNS,symbol):
+    all_symbols = []
+    for symbol, symbol_count in symbols.items(): # key + value in the dictionnary
+        for _ in range(symbol_count) # anonymous variable in python = "_" , this is used when you do not need to know about the iteration count of the variable
+            all_symbols.append(symbol)
+    COLUMNS = [[],[],[]]
+    for _ in range(COLUMNS):
+        column = []
+        current_symbols = all_symbols[:] # slice operator so that our original all_symbols list doesn't change
+        for _ in range(rows):
+            value = random.choice(all_symbols)
+            current_symbols.remove(value)
+            column.append(value)
+        columns.append(column)
+    return columns
 def deposit():
     while True:
         # while loop so that we keep asking for a valid amount until we get one
@@ -63,7 +100,7 @@ def main():
     while True:
         bet = get_bet()
         total_bet = bet * lines
-        if total_bet > balance 
+        if total_bet > balance:
             print(f"You do not have enough to bet that amount, your current balance is: ${balance}")
         else:
             break
